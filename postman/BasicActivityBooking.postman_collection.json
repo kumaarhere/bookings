@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "BasicActivityBooking",
+    "_postman_id": "unique-id-here",
+    "description": "API collection for Basic Activity Booking App"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"1234567890\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": "http://localhost:5000/api/auth/register"
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": "http://localhost:5000/api/auth/login"
+      }
+    },
+    {
+      "name": "Get All Activities",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/activities"
+      }
+    },
+    {
+      "name": "Book an Activity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"activityId\": \"1\"\n}"
+        },
+        "url": "http://localhost:5000/api/bookings"
+      }
+    },
+    {
+      "name": "Get My Bookings",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "http://localhost:5000/api/bookings/me"
+      }
+    }
+  ]
+}
